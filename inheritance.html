@@ -1,0 +1,26 @@
+<script>
+ function Vehicle(name){
+     this.name = name;
+ }
+
+ Vehicle.prototype.start = function(){
+     return this.name;
+ }
+
+ function Car(name){
+     Vehicle.call(this,name);
+ }
+
+ Car.prototype = Object.create(Vehicle.prototype);
+
+ Car.prototype.run = function(){
+   console.log('Hello' + this.start());
+ }
+
+ c1 = new Car('maruti');
+ c2 = new Car('alto');
+
+ c1.run();
+ c2.run();
+
+</script>
